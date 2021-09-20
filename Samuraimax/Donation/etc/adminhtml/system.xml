@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="donations_config_tab" translate="label" sortOrder="110">
+            <label>Donations</label>
+        </tab>
+        <section id="donations_config_section" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Donations Settings</label>
+            <tab>donations_config_tab</tab>
+            <resource>Samuraimax_Donation::acl_path</resource>
+
+            <group id="donations_config_group" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <attribute type="expanded">1</attribute>
+                <field id="donation_product_title" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" type="text" sortOrder="1">
+                    <label>Donation Product Title</label>
+                </field>
+                <field id="donation_product_sku" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" type="text" sortOrder="2">
+                    <label>Donation Product SKU</label>
+                </field>
+                <field id="donation_product_description" translate="label comment" sortOrder="3" type="editor" showInStore="1" showInDefault="1" >
+                    <label>Donation Product Description</label>
+                    <frontend_model>Samuraimax\Donation\Block\Adminhtml\System\Config\Editor</frontend_model>
+                </field>
+                <field id="donation_product_image" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="4" showInDefault="1" showInWebsite="1" >
+                    <label>Donation Product Image</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\File</backend_model>
+                    <upload_dir config="system" scope_info="1">donations</upload_dir>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

@@ -1,0 +1,27 @@
+<?php
+
+print '<h2>Make a donation</h2>';
+print '<input type=number id="donation_amount" />';
+print '<button type="button" id="donation_amount_submit">Submit</button>';
+
+?>
+
+<script>
+    require(['jquery'], function() {
+        jQuery('#donation_amount_submit').on('click', function() {
+            const donationAmount = jQuery('#donation_amount').val();
+
+            jQuery.ajax({
+                url: '/add_donation/path/action',
+                data: {amount: donationAmount},
+                success: function() {
+                    alert('Donation added');
+                    location.reload();
+                },
+            });
+
+            // todo add an ajax call that programmatically creates the product and adds it to cart
+
+        })
+    })
+</script>
